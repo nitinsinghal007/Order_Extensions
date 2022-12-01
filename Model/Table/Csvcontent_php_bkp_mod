@@ -1,0 +1,63 @@
+<?php
+namespace Dotsquares\Imexport\Model\Table;
+
+class Csvcontent extends \Dotsquares\Imexport\Model\Functional\Export
+{
+    public function getCSVvalue($order)
+    {
+		$content = array();
+        $shippingAddress = !$order->getIsVirtual() ? $order->getShippingAddress() : null;
+        $billingAddress = $order->getBillingAddress();
+        if(!$shippingAddress)
+        $shippingAddress = $billingAddress;
+        $credit_detail = $this->getCreditMemoDetail($order);
+		$histories = $order->getStatusHistories();
+		if(!empty($histories)){
+            $latestHistoryComment = array_pop($histories);
+            $comment = $latestHistoryComment->getComment();
+		}else{
+			$comment = '';
+		}
+		$content = array(
+            $this->formatText($shippingAddress->getData('firstname')),
+            $this->formatText($order->getBillingAddress()->getData('firstname')),
+            $order->getData('grand_total'),
+            $order->getData('base_grand_total'),
+            $order->getStatus(),
+            $order->getPaymentstatus(),
+            $this->allAddress($shippingAddress),
+            $this->allAddress($order->getBillingAddress()),
+            $this->getShippingMethod($order),
+            $order->getData('customer_email'),
+            $order->getData('customer_email'),
+			$order->getData('subtotal'),
+			$order->getData('base_subtotal'),
+            $this->getShippingMethod($order).'/'.$order->getData('shipping_amount'),
+			$this->formatText($order->getData('customer_firstname')),
+			$this->getPaymentMethod($order),
+            $this->formatText($shippingAddress->getData('city')),
+            $this->formatText($shippingAddress->getData('company')),
+            $shippingAddress->getData('country_id'),
+			$this->formatText($order->getData('customer_firstname')),
+            $this->formatText($order->getData('customer_lastname')),
+            $shippingAddress->getData('postcode'),
+            $this->formatText($shippingAddress->getData('region')),
+            $this->formatText($shippingAddress->getData('street')),
+            $shippingAddress->getData('telephone'),
+            $order->getData('coupon_code'),
+            '',
+            '',
+            $order->getOrderComment(),
+            $order->getBuyerGstNumber()
+        ); 
+        return $content;
+    }
+	
+	public function allAddress($address){
+		$street_arr = $address->getStreet();
+		$street = implode(" ",$street_arr);
+		$html = '';
+		$html .= 'Name: '.$address->getName().' Telephone:'.$address->getTelephone().' Street:'.$street.' Postcode:'.$address->getPostcode().', '.$address->getCity().', '.$address->getRegion().' Country:'.$address->getCountryId();
+		return $html;
+	}
+}

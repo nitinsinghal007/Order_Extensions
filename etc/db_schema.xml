@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+        <table name="ind_Custom_order_report" resource="default" engine="innodb" comment="ind Custom order report">
+		     <column xsi:type="int" name="entity_id" unsigned="true" nullable="false" identity="true" comment="Entity ID"/>
+             <column xsi:type="text" name="purchase_date" nullable="true" comment=""/>
+             <column xsi:type="text" name="purchase_time" nullable="true" comment=""/>
+             <column xsi:type="text" name="order_id" nullable="true" comment=""/>
+             <column xsi:type="text" name="payment_ref" nullable="true" comment=""/>
+             <column xsi:type="text" name="product_attribute_set" nullable="true" comment=""/>
+             <column xsi:type="text" name="product_name" nullable="true" comment=""/>
+             <column xsi:type="text" name="product_type" nullable="true" comment=""/>
+             <column xsi:type="text" name="sku" nullable="true" comment=""/>
+             <column xsi:type="text" name="rptech_sku" nullable="true" comment=""/>
+             <column xsi:type="text" name="quantity_ordered" nullable="true" comment=""/>
+             <column xsi:type="text" name="selling_price" nullable="true" comment=""/>
+             <column xsi:type="text" name="converted_selling_price" nullable="true" comment=""/>
+             <column xsi:type="text" name="original_price" nullable="true" comment=""/>
+             <column xsi:type="text" name="internal_code" nullable="true" comment=""/>
+             <column xsi:type="text" name="internalcountrycode" nullable="true" comment=""/>
+             <column xsi:type="text" name="categorycode" nullable="true" comment=""/>
+             <column xsi:type="text" name="gst_id" nullable="true" comment=""/>
+             <column xsi:type="text" name="billing_to_name" nullable="true" comment=""/>
+             <column xsi:type="text" name="shipping_to_name" nullable="true" comment=""/>
+             <column xsi:type="text" name="grand_total" nullable="true" comment=""/>
+             <column xsi:type="text" name="base_grand_total" nullable="true" comment=""/>
+             <column xsi:type="text" name="status" nullable="true" comment=""/>
+             <column xsi:type="text" name="payment_status" nullable="true" comment=""/>
+             <column xsi:type="text" name="billing_address" nullable="true" comment=""/>
+             <column xsi:type="text" name="shipping_address" nullable="true" comment=""/>
+             <column xsi:type="text" name="shipping_information" nullable="true" comment=""/>
+             <column xsi:type="text" name="customer_email" nullable="true" comment=""/>
+             <column xsi:type="text" name="customer_group" nullable="true" comment=""/>
+             <column xsi:type="text" name="subtotal" nullable="true" comment=""/>
+             <column xsi:type="text" name="base_subtotal" nullable="true" comment=""/>
+             <column xsi:type="text" name="shipping_method" nullable="true" comment=""/>
+             <column xsi:type="text" name="shipping_cost" nullable="true" comment=""/>
+             <column xsi:type="text" name="customer_name" nullable="true" comment=""/>
+             <column xsi:type="text" name="payment_method" nullable="true" comment=""/>
+             <column xsi:type="text" name="city" nullable="true" comment=""/>
+             <column xsi:type="text" name="country" nullable="true" comment=""/>
+             <column xsi:type="text" name="first_name" nullable="true" comment=""/>
+             <column xsi:type="text" name="last_name" nullable="true" comment=""/>
+             <column xsi:type="text" name="postcode" nullable="true" comment=""/>
+             <column xsi:type="text" name="region" nullable="true" comment=""/>
+             <column xsi:type="text" name="street" nullable="true" comment=""/>
+             <column xsi:type="text" name="telephone" nullable="true" comment=""/>
+             <column xsi:type="text" name="coupon_code_used" nullable="true" comment=""/>
+             <column xsi:type="text" name="tracking_id" nullable="true" comment=""/>
+             <column xsi:type="text" name="assisted_sales_rep_name" nullable="true" comment=""/>
+             <column xsi:type="text" name="isr" nullable="true" comment=""/>
+             <column xsi:type="text" name="gst_number" nullable="true" comment=""/>
+             <column xsi:type="text" name="utm_source" nullable="true" comment=""/>
+             <column xsi:type="text" name="utm_medium" nullable="true" comment=""/>
+             <column xsi:type="text" name="utm_campaign" nullable="true" comment=""/>
+             <column xsi:type="text" name="coupon_rule_name" nullable="true" comment=""/>
+             <constraint xsi:type="primary" referenceId="PRIMARY">
+                  <column name="entity_id"/>
+              </constraint>
+        </table>        
+</schema>
